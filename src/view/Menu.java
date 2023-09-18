@@ -42,7 +42,12 @@ public abstract class Menu<T> {
         int choice;
         do{
             display();
-            choice = getChoice();
+            try{
+                choice = getChoice();
+            }
+            catch(Exception e){
+                choice = list.size()+1;
+            }
             System.out.println("-------------------------");
             execute(choice);
         }
